@@ -1,8 +1,19 @@
 let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
 let js_hand = getJShand();
-let judge = winLose(user_hand, js_hand);
 
-alert('あなたの選んだ手は'+user_hand+'です。¥nJavaScriptの選んだ手は'+js_hand+'です。結果は'+judge+'です。');
+let string = true;
+while(string){
+  let judge = winLose(user_hand, js_hand);
+  if (user_hand == "グー" || user_hand == "チョキ" || user_hand == "パー"){
+    alert('あなたの選んだ手は'+user_hand+'です。¥nJavaScriptの選んだ手は'+js_hand+'です。結果は'+judge+'です。');
+    break;
+  } else if(user_hand == null){
+    alert('またチャレンジしてね');
+    break;
+  } else {
+    user_hand = prompt('グー・チョキ・パーのいずれかを入力してください。');
+  }
+}
 
 function getJShand(){
   let js_hand_num = Math.floor(Math.random()*3);
